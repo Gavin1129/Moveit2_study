@@ -1,6 +1,7 @@
 # Franka_Sigma_ws
 
 This is an example to control FR3 arm by sigma.7 haptic device. 
+Teleoperation franka research 3 robot through force dimention sigma haptic device
 
 ## Steps:
 
