@@ -16,7 +16,9 @@ find_package(moveit_visual_tools REQUIRED)
 
 
 add_executable(franka_move src/franka_move.cpp)
-add_executable(hello_moveit src/hello_moveit.cpp)
+add_executable(hello_moveit2 src/hello_moveit2.cpp)
+add_executable(follow_target src/follow_target.cpp)
+add_executable(franka_target_pub src/franka_target_pub.cpp)
 
 target_include_directories(franka_move PUBLIC
   $<BUILD_INTERFACE:${CMAKE_CURRENT_SOURCE_DIR}/include>
@@ -33,7 +35,27 @@ ament_target_dependencies(
 )
 
 ament_target_dependencies(
-  hello_moveit
+  hello_moveit2
+  "rclcpp"
+  "geometry_msgs"
+  "std_msgs"
+  "moveit"
+  "moveit_ros_planning_interface"
+  "moveit_visual_tools"
+)
+
+ament_target_dependencies(
+  follow_target
+  "rclcpp"
+  "geometry_msgs"
+  "std_msgs"
+  "moveit"
+  "moveit_ros_planning_interface"
+  "moveit_visual_tools"
+)
+
+ament_target_dependencies(
+  franka_target_pub
   "rclcpp"
   "geometry_msgs"
   "std_msgs"
@@ -43,7 +65,9 @@ ament_target_dependencies(
 )
 
 install(TARGETS franka_move
-  hello_moveit
+  hello_moveit2
+  follow_target
+  franka_target_pub
   DESTINATION lib/${PROJECT_NAME})
 
 if(BUILD_TESTING)
