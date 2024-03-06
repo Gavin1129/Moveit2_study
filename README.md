@@ -33,5 +33,6 @@ Steps:
    ```
    ros2 run franka_moveit_my franka_target_pub 
    ```
-
+## Franka Hardware Follow Sigma7 Haptic Device
+This is an example to control FR3 arm hardware by sigma.7 haptic device .
 
